@@ -7,7 +7,7 @@ const POST_API_URL = `${API_BASE_URL1}/api/timeapp.php`; // Your POST API endpoi
 const RESTRICTED_API_URL = `${API_BASE_URL1}/api/restricted.php`; // Your new GET API endpoint
 
 export const fetchUniqueEmpIds = async () => {
-  const response = await fetch("http://98.83.30.44/api/uniquefilters.php");
+  const response = await fetch("http://54.89.23.219/api/uniquefilters.php");
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
@@ -23,7 +23,7 @@ export const fetchUniqueEmpIds = async () => {
 export const sendData = async ({ empId, date }) => {
   const userid = localStorage.getItem('EMPID');
 
-  const response = await fetch("http://98.83.30.44/api/timeapp.php", {
+  const response = await fetch("http://54.89.23.219/api/timeapp.php", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ export const sendData = async ({ empId, date }) => {
 
 // New function to get all data from the restricted endpoint
 export const fetchAllData = async () => {
-  const response = await fetch('http://98.83.30.44/api/restricted.php');
+  const response = await fetch('http://54.89.23.219/api/restricted.php');
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
@@ -48,7 +48,7 @@ export const fetchAllData = async () => {
   return data; // Return the entire data structure received from the API
 };
 export const postData = async ({ websiteName, type }) => {
-  const response = await fetch('http://98.83.30.44/api/insert.php', {
+  const response = await fetch('http://54.89.23.219/api/insert.php', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
