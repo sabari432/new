@@ -1,0 +1,149 @@
+/* PageWithCards.css */
+.menu-item {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-item:hover {
+  background-color: #e6f7ff; /* Light blue background on hover */
+  color: #1890ff; /* Blue text color on hover */
+}
+
+.menu-divider {
+  margin: 8px 0;
+}
+/* CSS for dropdown menu items */
+.ant-menu-item {
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+.ant-dropdown-menu {
+  font-size: 16px; /* Ensure dropdown menu reflects the font size */
+}
+
+/* CSS for buttons */
+.ant-btn {
+  font-size: 16px; /* Adjust the font size of buttons */
+  padding: 8px 16px; /* Adjust padding for better appearance */
+}
+.card-title{
+  padding: 3px;
+  margin-top: -23px;
+}
+.card-t{
+  padding: 3px;
+   margin-Top: -70px;
+}
+.cards-1{
+  width: '15%';
+  height: '2%';
+  margin-Bottom: '1%';
+  overflow: 'hidden'; 
+  text-Overflow: 'ellipsis'; 
+  white-Space: 'nowrap';
+}
+.card123{
+  margin-Bottom: '1%';height:"1%"; width:'50%';
+  box-Shadow: '0 7px 8px rgba(0, 0, 0, 1)';
+  position: 'realtive';
+}
+
+
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Make sure the container takes up full height */
+  padding: 20px;
+}
+.table-container {
+  padding: 24px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.table-wrapper {
+  max-height: 500px; /* Adjust height as needed */
+  overflow-y: auto;
+}
+
+.custom-select .ant-select-selector {
+  overflow: hidden; /* Hide overflow if the content exceeds the size */
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  white-space: nowrap; 
+  /* Prevent text from wrapping */
+}
+
+.custom-select .ant-select-selection-overflow {
+
+  height: 22px; /* Set a fixed height */
+  width: 80px; /* Set a fixed width */
+  white-space: nowrap; 
+  overflow: hidden;
+  overflow: hidden;
+  
+}
+
+.custom-select .ant-select-selection-item {
+  
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.custom-dropdown .ant-select-item {
+  font-size: 8px;
+  padding: 2px;
+  overflow: hidden;
+}
+.custom-select .ant-select-selection-overflow{
+  overflow: hidden;
+}
+
+
+.custom-select .ant-select-selection-item {
+  font-size: 16px; /* Adjust as needed */
+  padding-inline-end: 2px;
+  overflow-y:hidden;
+  
+}
+
+.custom-select .ant-select-selection-placeholder {
+  font-size: 13px; /* Adjust as needed */
+  height:20px;
+  
+}
+
+.custom-select .ant-select-selector {
+  font-size: 8px; /* Adjust as needed */
+  padding: 2px 4px; /* Decreased padding to fit the text neatly */
+  height: 24px; /* Optional: adjust height for compact design */
+  line-height: 22px; 
+
+  
+}
+.custom-dropdown1 .ant-select-item {
+  font-size: 10px;
+  padding: 1px 4px;
+  
+}
+.scrollable-container {
+  max-height: 500px; /* or any height that fits your layout */
+  /* Enable vertical scrolling */
+}
+.custom-select .ant-select-selector {
+  overflow: hidden; /* Hide overflow if the content exceeds the size */
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  white-space: nowrap; 
+  /* Prevent text from wrapping */
+}
+
+.bold-placeholder {
+  font-weight: bold;
+}
+
+
+

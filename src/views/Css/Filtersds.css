@@ -1,0 +1,26 @@
+/* Assuming this is in your CSS file, e.g., StatusTb.css */
+.kkk {
+  overflow: hidden; 
+  display: flex;
+  align-items: center; /* Align items vertically centered */
+  white-space: nowrap; 
+}
+  
+  .pyt .ant-select-selection-placeholder {
+    font-size: 10px; /* Adjust the placeholder font size */
+  }
+  .pyt .ant-select-selection-overflow {
+  
+    height: 22px; /* Set a fixed height */
+    width: 35px; /* Set a fixed width */
+    white-space: nowrap; 
+    overflow: hidden;
+    overflow: hidden;
+    
+}
+
+  .custom-dropdown1 .ant-select-item {
+    font-size: 10px;
+    padding: 1px 4px;
+    
+  }
