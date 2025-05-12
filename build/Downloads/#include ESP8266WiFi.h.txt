@@ -1,0 +1,81 @@
+#include <ESP8266WiFi.h>
+
+const char* ssid = "sudharshan";     // Your WiFi SSID
+const char* password = "sudharshan"; // Your WiFi password
+
+const char* serverAddress = "192.168.97.114";  // IP address of your server
+const int serverPort = 80;                   // Port of your server
+const char* phpFile = "/smart/index.php";    // Location of your PHP file
+
+const int moistureSensorPin = A0;   // Analog pin connected to the moisture sensor
+const int motorPin = 16;            // Digital pin connected to the motor driver
+
+const int motorThreshold = 40;      // Moisture percentage threshold to activate the motor
+const int maxSensorValue = 1023;    // Maximum value from the moisture sensor
+
+WiFiClient client;
+
+void setup() {
+  Serial.begin(115200); // Change baud rate to 115200
+  pinMode(motorPin, OUTPUT);
+  connectToWiFi();
+}
+
+void loop() {
+  int moistureValue = analogRead(moistureSensorPin);
+  int moisturePercentage = map(moistureValue, 0, maxSensorValue, 100, 0);
+  int binaryValue = map(moistureValue, 0, maxSensorValue, 0, 1); // Convert to binary
+
+  Serial.print("Moisture Percentage: ");
+  Serial.println(moisturePercentage);
+  Serial.print("Binary Value: ");
+  Serial.println(binaryValue);
+
+  if (moisturePercentage <= motorThreshold) {
+    turnOnMotor();
+  } else {
+    turnOffMotor();
+  }
+
+  sendDataToServer(moisturePercentage);
+
+  delay(1000);
+}
+
+void connectToWiFi() {
+  Serial.println();
+  Serial.print("Connecting to WiFi");
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+}
+void sendDataToServer(int moisturePercentage) {
+  if (client.connect(serverAddress, serverPort)) {
+    Serial.println("Connected to server");
+    // Create the GET request URL with both moisture and motor values
+    String url = "GET " + String(phpFile) + "?moisture=" + String(moisturePercentage) + "&motor=" + String(digitalRead(motorPin)) + " HTTP/1.1";
+    client.println(url);
+    client.println("Host: " + String(serverAddress));
+    client.println("Connection: close");
+    client.println();
+    delay(100); // Allow time for server to respond
+
+    client.stop();
+    Serial.println("Request sent");
+  } else {
+    Serial.println("Failed to connect to server");
+  }
+}
+void turnOnMotor() {
+  digitalWrite(motorPin, HIGH);
+}
+
+void turnOffMotor() {
+  digitalWrite(motorPin, LOW);
+}
